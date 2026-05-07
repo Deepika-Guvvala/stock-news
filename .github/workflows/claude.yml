@@ -40,6 +40,12 @@ jobs:
           pip install -r requirements.txt 2>/dev/null || true
 
       - name: Run tests
+        env:
+          ALPHA_VANTAGE_API_KEY: dummy
+          NEWS_API_KEY: dummy
+          EMAIL_ADDRESS: dummy@example.com
+          EMAIL_PASSWORD: dummy
+          EMAIL_TO: dummy@example.com
         run: python -m pytest test_main.py -v
 
       - name: Push to remote
