@@ -35,7 +35,9 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt 2>/dev/null || true
+        run: |
+          pip install pytest
+          pip install -r requirements.txt 2>/dev/null || true
 
       - name: Run tests
         run: python -m pytest test_main.py -v
